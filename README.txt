@@ -1,4 +1,4 @@
-** Image Comparator **
+# Image Comparator
 For deleting duplicate images.
 
 I (Robatortas) don't intend this program to be of commercial use.
