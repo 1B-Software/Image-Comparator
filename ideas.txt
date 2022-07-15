@@ -1,8 +1,0 @@
-How are we gonna make a for loop that augments depending on the size of images checked?
-Let's think a little.......
-
-We want to put the comparation loop inside a loop that increments every time the compared image finished comparing
-itself with all the other images in the folder, then passing on to the second image to do the same, then to the third and so on
-until it is done!
-
-That's the plan

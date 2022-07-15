@@ -19,6 +19,10 @@ public class Comparator {
 	// All the images the image is comparing itself to.
 	private BufferedImage comparedImage;
 	
+	// LOG INFO
+	private int deletedCount = 0;
+	private int fileCount = 0;
+	
 	public Comparator() {
 		console();
 	}
@@ -57,11 +61,13 @@ public class Comparator {
 			System.exit(0);
 		}
 		
+		System.out.println("\nLOGS:\n\nFiles Deleted: " + deletedCount + "\nRemaining Files: " + (fileCount = new File(dir).list().length) + "\n\n****************");
+		
 		System.out.println("\nComparation is done!\n\nYour comparated images are processed and in the same folder location.\n\n"
 				+ "Thank you for using Image Comparator and have a wonderful day!");
 	}
 	
-	int originalFile = 0;
+	private int originalFile = 0;
 	
 	public void compares() {
 		System.out.println("comparing...\n\n");
@@ -76,7 +82,6 @@ public class Comparator {
 			String[] filesInDir = new File(dir).list();
 			
 			fileSize = new File(dir).list().length;
-			System.out.println("fileSize!: " + fileSize);
 			for(int i = 0; i < fileSize; i++) {
 				System.out.println("COMPARING ====> " + filesInDir[i]);
 				// Without the getClass stuff, it gets files from the whole drive, not just from the resources.
@@ -120,6 +125,7 @@ public class Comparator {
 					System.err.println("Match");
 //					System.out.println("Num of Files : " + fileSize);
 					new File(dir + "\\" + filesInDir[i]).delete();
+					deletedCount+=1;
 				} else {
 					System.out.println("Pass");
 				}
@@ -130,8 +136,6 @@ public class Comparator {
 				Thread.sleep(2);
 			}
 				originalFile++;
-				System.out.println("originalFile val = " + originalFile);
-				System.out.println("fileSize*fileSize: " + fileSize*fileSize);
 		} catch (IOException e) {
 			
 		} catch (InterruptedException e) {
