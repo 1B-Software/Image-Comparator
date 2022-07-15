@@ -39,7 +39,14 @@ public class Comparator {
 			case 'y': 
 				System.out.println("Lets continue then!\n");
 				System.out.println("Starting comparator... (Let me handle this now!)\n");
-				compares();
+				try {
+					int fileSize = new File(dir).list().length;
+					for(int i = 0; i < fileSize; i++) {
+					compares();
+					}
+				} catch(Exception e) {
+					
+				}
 				break;
 			case 'n': System.out.println("ABORTING"); System.exit(0);
 			break;
@@ -54,17 +61,10 @@ public class Comparator {
 				+ "Thank you for using Image Comparator and have a wonderful day!");
 	}
 	
+	int originalFile = 0;
+	
 	public void compares() {
-		String dots = "comparing...";
-		for(int i = 0; i < dots.length(); i++) {
-			try {
-				Thread.sleep(100);
-				System.out.print(dots.charAt(i));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		System.out.print("\n\n");
+		System.out.println("comparing...\n\n");
 		
 		try {
 			int fileSize = new File(dir).list().length;
@@ -75,10 +75,8 @@ public class Comparator {
 			
 			String[] filesInDir = new File(dir).list();
 			
-			int originalFile = 0;
-			
-//			for(int k = 0; k < fileSize; k++)
-			while(originalFile < fileSize) {
+			fileSize = new File(dir).list().length;
+			System.out.println("fileSize!: " + fileSize);
 			for(int i = 0; i < fileSize; i++) {
 				System.out.println("COMPARING ====> " + filesInDir[i]);
 				// Without the getClass stuff, it gets files from the whole drive, not just from the resources.
@@ -120,19 +118,20 @@ public class Comparator {
 				
 				if(RGB == comparedRGB && w*h == ww*hh && i != originalFile) {
 					System.err.println("Match");
+//					System.out.println("Num of Files : " + fileSize);
 					new File(dir + "\\" + filesInDir[i]).delete();
 				} else {
 					System.out.println("Pass");
 				}
-				
-				if(i == fileSize-1 && originalFile <= fileSize) {
-					originalFile++;
+			
+				if(i == fileSize-1) {
 					System.out.println("*************");
 				}
-				
 				Thread.sleep(2);
 			}
-			}
+				originalFile++;
+				System.out.println("originalFile val = " + originalFile);
+				System.out.println("fileSize*fileSize: " + fileSize*fileSize);
 		} catch (IOException e) {
 			
 		} catch (InterruptedException e) {
