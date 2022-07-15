@@ -123,7 +123,6 @@ public class Comparator {
 				
 				if(RGB == comparedRGB && w*h == ww*hh && i != originalFile) {
 					System.err.println("Match");
-//					System.out.println("Num of Files : " + fileSize);
 					new File(dir + "\\" + filesInDir[i]).delete();
 					deletedCount+=1;
 				} else {
@@ -133,16 +132,10 @@ public class Comparator {
 				if(i == fileSize-1) {
 					System.out.println("*************");
 				}
-				Thread.sleep(2);
 			}
 				originalFile++;
 		} catch (IOException e) {
 			
-		} catch (InterruptedException e) {
-			System.out.println("\n");
-			System.err.println(e.getMessage());
-			System.out.println("ABORTING");
-			System.exit(0);
 		}
 	}
 }
