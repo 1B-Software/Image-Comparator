@@ -99,9 +99,6 @@ public class Comparator {
 				int RGB = 0;
 				int comparedRGB = 0;
 				
-				// I am separating pixels just in case we might use it for the future!
-				// And I know I could just assign image.getRGB() to a variable, but it's better this way for future use.
-				
 				for(int j = 0; j < pixels.length; j++) {
 					int a = (pixels[j] & 0xff000000) >> 24;
 					int r = (pixels[j] & 0xff0000) >> 16;
