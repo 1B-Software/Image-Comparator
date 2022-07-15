@@ -81,14 +81,17 @@ public class Comparator {
 			String[] filesInDir = new File(dir).list();
 			
 			fileSize = new File(dir).list().length;
+			
+			image = ImageIO.read(new File(dir + "\\" + filesInDir[originalFile]));
+			int w = image.getWidth();
+			int h = image.getHeight();
+			pixels = new int[w*h];
+			image.getRGB(0, 0, w, h, pixels, 0, w);
+			
 			for(int i = 0; i < fileSize; i++) {
 				System.out.println("COMPARING ====> " + filesInDir[i]);
 				// Without the getClass stuff, it gets files from the whole drive, not just from the resources.
-				image = ImageIO.read(new File(dir + "\\" + filesInDir[originalFile]));
-				int w = image.getWidth();
-				int h = image.getHeight();
-				pixels = new int[w*h];
-				image.getRGB(0, 0, w, h, pixels, 0, w);
+				
 				
 				comparedImage = ImageIO.read(new File(dir + "\\" + filesInDir[i]));
 				int ww = comparedImage.getWidth();
