@@ -21,7 +21,6 @@ public class Comparator {
 	
 	// LOG INFO
 	private int deletedCount = 0;
-	private int fileCount = 0;
 	
 	public Comparator() {
 		console();
@@ -61,7 +60,7 @@ public class Comparator {
 			System.exit(0);
 		}
 		
-		System.out.println("\nLOGS:\n\nFiles Deleted: " + deletedCount + "\nRemaining Files: " + (fileCount = new File(dir).list().length) + "\n\n****************");
+		System.out.println("\nLOGS:\n\nFiles Deleted: " + deletedCount + "\nRemaining Files: " + (new File(dir).list().length) + "\n\n****************");
 		
 		System.out.println("\nComparation is done!\n\nYour comparated images are processed and in the same folder location.\n\n"
 				+ "Thank you for using Image Comparator and have a wonderful day!");
