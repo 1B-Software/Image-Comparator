@@ -120,7 +120,7 @@ public class Comparator {
 				
 				if(RGB == comparedRGB && w*h == ww*hh && i != originalFile) {
 					System.err.println("Match");
-					new File(dir + "\\" + filesInDir[originalFile]).delete();
+					new File(dir + "\\" + filesInDir[i]).delete();
 				} else {
 					System.out.println("Pass");
 				}
@@ -134,10 +134,7 @@ public class Comparator {
 			}
 			}
 		} catch (IOException e) {
-			System.out.println("\n");
-			System.err.println(e.getMessage());
-			System.out.println("ABORTING");
-			System.exit(0);
+			
 		} catch (InterruptedException e) {
 			System.out.println("\n");
 			System.err.println(e.getMessage());
