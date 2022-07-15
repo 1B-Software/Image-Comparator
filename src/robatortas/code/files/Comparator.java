@@ -153,6 +153,7 @@ public class Comparator {
 			int originalFile = 1;
 			
 //			for(int k = 0; k < fileSize; k++)
+			while(originalFile < fileSize) {
 			for(int i = 0; i < fileSize; i++) {
 				System.out.println("COMPARING ====> " + filesInDir[i]);
 				// Without the getClass stuff, it gets files from the whole drive, not just from the resources.
@@ -192,14 +193,17 @@ public class Comparator {
 					comparedRGB = a << 24 | r << 16 | g << 8 | b;
 				}
 				
-				if(RGB == comparedRGB && w*h == ww*hh) {
+				if(RGB == comparedRGB && w*h == ww*hh && i != originalFile) {
 					System.err.println("Match");
 				} else {
 					System.out.println("Pass");
 				}
 				
-				Thread.sleep(10);
+				if(i == fileSize-1 && originalFile <= fileSize) originalFile++;
 				
+				Thread.sleep(2);
+				System.out.println("ORIGINAL FILE VALUE = " + originalFile);
+			}
 			}
 		} catch (IOException e) {
 			System.out.println("\n");
