@@ -15,6 +15,6 @@ Then when you're in the Command Prompt window, type the following: java -jar <dr
 Then just hit enter and the program will run!
 
 # Code
-To see the code just look inside the repo files, you can download and modify it in any way you want!
+To see the source code just look inside the repo files, you can download and modify it in any way you want!
 
 -Robatortas
